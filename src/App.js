@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import CustomInput from './CustomInput'
 
 function App() {
+
+  const [textSearch, setTextSearch] = useState('Hello anh em')
+
+  useEffect(() => {
+    console.log(textSearch)
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{ paddingTop: '15px' }}>
+      <CustomInput
+        value={textSearch}
+        onChange={(text) => setTextSearch(text)}
+      />
+      <hr></hr>
+      <h3>{textSearch}</h3>
     </div>
   );
 }
